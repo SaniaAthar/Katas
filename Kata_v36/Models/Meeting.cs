@@ -32,6 +32,7 @@ namespace Scheduler.Models
         public override string ToString()
         {
             string date = Start.ToString("d'/'M'/'yy");
+            string start = Start.ToString(format:"h")
 
             string info = date;
 

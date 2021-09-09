@@ -68,5 +68,10 @@ namespace Scheduler
 
             listBox_Applicants.DataSource = content;
         }
+
+        private void MainForm_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

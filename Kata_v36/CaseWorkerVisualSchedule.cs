@@ -32,7 +32,19 @@ namespace Scheduler
 
         private void Button_ChangeDate_Click(object sender, EventArgs e)
         {
-            int index = listBox_Meetings.SelectedIndex; 
+            try
+            {
+                int index = listBox_Meetings.SelectedIndex;
+                _caseWorker.ChangeMeeting(index, dateTimePicker.value);
+                RefreshDisplayedMeetings();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+               int index = listBox_Meetings.SelectedIndex; 
+
+
             _caseWorker.ChangeMeeting(index, dateTimePicker.Value);
             RefreshDisplayedMeetings();
         }
