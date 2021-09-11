@@ -14,9 +14,14 @@ namespace Scheduler
 {
     public partial class CaseWorkerVisualSchedule : UserControl
     {
+        private readonly Action _meetingAddedHandlar;
         private readonly CaseWorker _caseWorker;
 
-        public CaseWorkerVisualSchedule(CaseWorker caseWorker)
+        public CaseWorkerVisualSchedule(CaseWorker caseWorker, Action meetingAddedHandlar)
+        {
+            _meetingAddedHandlar = meetingAddedHandlar;
+        }
+
         {
             _caseWorker = caseWorker;
             InitializeComponent();
