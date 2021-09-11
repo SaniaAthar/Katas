@@ -8,11 +8,28 @@ namespace OnlineOrderSystem
 {
     class OnlineOrder
     {
-        public string Name;
+        public string ItemName;
+        public double ItemCost;
+        public string CustomerName;
+        public string CustomerAddress;
+        public int OrderNumber;
+        public DateTime OrderDate;
 
-        public OnlineOrder(string name)
+        private static int _nextNumber = 1;
+        
+
+        public OnlineOrder(string item)
         {
-            Name = name;
+            ItemName = item;
+            OrderDate = DateTime.Now;
+            OrderNumber = _nextNumber;
+            _nextNumber++;
         }
+
+        public int GetOrderNumber()
+        {
+            return OrderNumber;
+        }
+
     }
 }

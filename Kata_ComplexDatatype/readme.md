@@ -1,4 +1,4 @@
-﻿(Installera [denna](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.MarkdownEditor) VS2019 extention för att se readme:n lokalt)
+﻿'(Installera [denna](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.MarkdownEditor) VS2019 extention för att se readme:n lokalt)
 
 ## Onlinebeställningssystem
 

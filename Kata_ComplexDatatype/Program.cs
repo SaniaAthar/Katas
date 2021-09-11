@@ -11,13 +11,17 @@ namespace OnlineOrderSystem
         {
             orders = new List<OnlineOrder>();
             EnterMainLoop();
+            OnlineOrder var1 = new OnlineOrder("cyckel");
+            OnlineOrder var2 = var1;
+            var1.ItemName = "Hej changed name";
+            Console.WriteLine(var2.OrderDate);
         }
 
         static void EnterMainLoop()
         {
             while (true)
             {
-                Console.Clear();
+                //Console.Clear();
 
                 Console.WriteLine("1: Order an electric bicycle");
                 Console.WriteLine("2: Order a trampoline");
@@ -35,6 +39,8 @@ namespace OnlineOrderSystem
                 if (choice == 1)
                 {
                     orders.Add(new OnlineOrder("electric bicycle"));
+                    Console.WriteLine(orders[0].OrderNumber);
+                    Console.WriteLine(orders[0].OrderDate);
                 }
                 else if (choice == 2)
                 {
@@ -50,20 +56,32 @@ namespace OnlineOrderSystem
                     string articleName = Console.ReadLine();
                     orders.Add(new OnlineOrder(articleName));
                 }
+                else if (choice == 5)
+                {
+                    int i;
+                    for (i = 0; i < orders.Count; i++)
+                    {
+                        Console.WriteLine("The order " + (i+1) + " " + orders[i].ItemName + orders[i].OrderDate);
+                    }
+                }
                 else if (choice == 6)
                 {
                     // TODO lägg till en dictionary itemRecord som har nyckeltyp 'string' och värdetyp 'int'
 
+                    Dictionary<string, int> itemNameCount = new Dictionary<string, int>();
+
                     foreach (var order in orders)
                     {
-                        
+                        if (itemNameCount.ContainsKey(order.ItemName))
+                            itemNameCount[order.ItemName] += 1;
+                        else
+                            itemNameCount[order.ItemName] = 1;
                     }
 
-                    //foreach (var record in itemRecord)
+                    foreach (var record in itemNameCount)
                     {
-                        
+                        Console.WriteLine("Order:" + record.Key + "=" + record.Value);
                     }
-                    Console.WriteLine("6: Show amount of each order");
                 }
                 else if (choice == 7)
                 {
